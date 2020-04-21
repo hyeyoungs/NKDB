@@ -17,8 +17,7 @@ var11 = file_id_in_fsfiles
 var12 = file_extracted_content
 
 [LOCAL]
-path_spider = /Users/sunzero/Dropbox/Crawling/NKDBCrawling_capston/crawlNKDB/spiders
+path_spider = /Users/sunzero/Dropbox/Crawling/NKDB_Crawling/crawlNKDB/spiders
 
 [SERVER]
-path_spider = /home/hyeyoung/NKDBCrawling_capston/crawlNKDB/spiders
-
+path_spider = /home/hyeyoung/NKDB_Crawling/crawlNKDB/spiders

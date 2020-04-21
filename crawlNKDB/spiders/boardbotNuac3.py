@@ -13,8 +13,6 @@ from tempfile import NamedTemporaryFile
 from itertools import chain
 control_chars = ''.join(map(chr, chain(range(0, 9), range(11, 32), range(127, 160))))
 CONTROL_CHAR_RE = re.compile('[%s]' % re.escape(control_chars))
-import time
-time.sleep(0.5)
 
 print("Start crawling~ SDG!!!")
 

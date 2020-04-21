@@ -21,8 +21,6 @@ import configparser
 config = configparser.ConfigParser()
 config.read('./../lib/config.cnf')
 
-import time
-time.sleep(0.5)
 
 class BoardbotexternalcontributionSpider(scrapy.Spider):
     name = 'boardbotExternalcontribution'

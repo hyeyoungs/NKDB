@@ -9,8 +9,7 @@ import requests
 import configparser
 config = configparser.ConfigParser()
 config.read('./../lib/config.cnf')
-import time
-time.sleep(0.5)
+
 class BoardbotlawSpider(scrapy.Spider):
     name = 'boardbotLaw'
 

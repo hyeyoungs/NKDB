@@ -17,8 +17,7 @@ CONTROL_CHAR_RE = re.compile('[%s]' % re.escape(control_chars))
 import configparser
 config = configparser.ConfigParser()
 config.read('./../lib/config.cnf')
-import time
-time.sleep(0.5)
+
 print("Start crawling~ SDG!!!")
 
 class Boardbotnuac1Spider(scrapy.Spider):
