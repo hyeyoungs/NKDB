@@ -10,23 +10,26 @@ def make_doclist(collection):
     doc_list = []
     # nkdb_collection에 있는 document를 가져와 docs에 저장하자.
     docs = collection.find()
-    count = docs.count()
+    #count = docs.count()
     # docs에 있는 전체 document를 반복해서 접근할텐데
     # 하나의 문서에 접근할 때마다 doc에 저
     for doc in docs:
         temp_list = doc["post_title"] + doc["post_body"]
-            if doc.get("file_extracted_content"):
-                file_temp_list = doc["file_name"] + doc["file_extracted_content"]
-                temp_list += file_temp_list
+        if doc.get("file_extracted_content"):
+            file_temp_list = doc["file_name"] + doc["file_extracted_content"]
+            temp_list += file_temp_list
             # 리스트에 temp_dict 추가
-            doc_list.append(temp_list)
+        doc_list.append(temp_list)
 
     print(doc_list)
     print("전체 document의 수: ", count)
 
-    return count, doc_list
+    return doc_list
 
-count, texts = make_doclist(nkdb_collection)
+    #return count, doc_list
+
+#count, texts = make_doclist(nkdb_collection)
+text = make_doclist(nkdb_collection)
 
 # 2. list of document 형태소 분석 적용
 from konlpy.tag import Okt
