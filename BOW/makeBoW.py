@@ -32,6 +32,10 @@ def make_doclist(collection):
 
 texts = make_doclist(nkdb_collection)
 
+# 임의 생성 (query)
+input_query = "거버넌스 활성화 방안"
+texts.insert(0, input_query)
+
 # 2. 형태소 분석 등 전처리하기
 from konlpy.tag import Mecab
 import re
@@ -42,7 +46,7 @@ def preprocess(doc_list):
     for index in range(0, len(doc_list)):
         remove_file_enc = re.compile(r'<[^>]+>');
         remove_special_char = re.compile(r"[^가-힣^.^,^?^!^]")
-        # 한글, 숫자를 제외한 기호 제거하기(일단, 전체 문서가 한국어로만 되어 있다고 가정한다.) 이때, 특수기호 및 \t, \n, 구두점도 같이 제거된다. #
+        # 한글, 숫자를 제외한 기호 제거하기(일단, 전체 문서가 한국어로만 되어 있다고 가정한다.) 이때, 특수기호 및 \t, \n, 구두점도 같이 제거된다.
         text = remove_file_enc.sub('', doc_list[index])
         text = remove_special_char.sub(' ', text)
 
@@ -54,7 +58,8 @@ def preprocess(doc_list):
 
         result = []
         for token, tag in morphs_texts:
-            if token not in stop_words and tag in ['NNG', 'NNP', 'NNB', 'NNBC', 'NR', 'NP', 'VV', 'VA', 'VX', 'VCP', 'VCN', 'MM', 'MAG', 'MAJ', 'IC', 'XPN', 'XSN', 'XSV', 'XSA', 'XR']: # stopwords 제외 and 조사, 어미 제외
+            if token not in stop_words and tag in ['NNG', 'NNP', 'NNB', 'NNBC', 'NR', 'NP', 'VV', 'VA', 'VX', 'VCP', 'VCN', 'MM', 'MAG', 'MAJ', 'IC', 'XPN', 'XSN', 'XSV', 'XSA', 'XR']:
+                # stopwords 제외 and 조사, 어미 제외
                 result.append(token)
 
         result_text = ' '.join(result)
@@ -77,16 +82,3 @@ def makeBoW(result_list):
     return BoW
 
 BoW = makeBoW(result_list)
-
-# 4. gensim 사용해 Tf-idf 적용
-from gensim.models import TfidfModel
-
-def applyTfidf(BoW):
-    model = TfidfModel(BoW) # fit model
-    total_vector = []
-    for index in range(0, len(BoW)):
-        total_vector.append(model[BoW[index]])
-        print(total_vector[index])
-    print(model)
-
-applyTfidf(BoW)
