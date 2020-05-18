@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
+.search{
+  background-color: #ffffff;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+/* Create three equal columns that floats next to each other */
+.result {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  height: 500px; /* Should be removed. Only for demonstration */
+}
+
+.input_res{
+  width:auto;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media only screen and (min-width: 100px){
+  .input_res{
+    display:block;
+  }
+}
+@media only screen and (min-width: 600px){
+  input.info {
+    margin: 0px;
+  }
+  .input_res{
+    display:inline;
+  }
+}
+
+@media only screen and (min-width: 800px){
+  .result{
+    width: 100.00%;
+  }
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align:center;
+  font-size:0.7em;
+  margin: 10px 0px;
+}
+
+input.info{
+  width: 200px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size:0.5em;
+}
+
+button#search{
+  width: 90px;
+  height: 40px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #e3e4e6;
+  letter-spacing: 0;
+  -webkit-transition: all .28s ease-in-out;
+  transition: all .28s ease-in-out;
+  font-size:0.5em;
+}
+
+button#search:hover{
+  background-color: #c5c7c9;
+  letter-spacing: 3px;
+}
+button#search:hover:before{
+  bottom: auto;
+  top: 0;
+}
+button#search:active{
+  letter-spacing: 3px;
+  background-color: #9b9c9e;
+  margin-bottom:100px;
+  -webkit-transition: all .50s ease-in-out;
+  transition: all .50s ease-in-out;
+}
+
+button,input.info:focus{
+  outline: none;
+}
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
