@@ -52,7 +52,7 @@ class Boardbotkinu38Spider(scrapy.Spider):
             if page_no > last_page_no:
                 break
             ####### 수정사항
-            link = "http://www.kinu.or.kr/brd/board/726/L/menu/382?brdType=L&searchField=&searchText=&thisPage=" + str(page_no) 
+            link = "http://www.kinu.or.kr/brd/board/726/L/menu/382?brdType=L&searchField=&searchText=&thisPage=" + str(page_no)
             print(link)
             yield scrapy.Request(link, callback = self.parse_each_pages, meta={'page_no': page_no, 'last_page_no': last_page_no})
             page_no += 1
