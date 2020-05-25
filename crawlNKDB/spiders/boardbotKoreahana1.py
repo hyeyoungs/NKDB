@@ -1,4 +1,13 @@
 # -*- coding: utf-8 -*-
+import logging
+from scrapy.utils.log import configure_logging
+
+logging.basicConfig(
+    filename='log_koreahana.txt',
+    format='%(levelname)s: %(message)s',
+    level=logging.INFO
+)
+
 import jpype
 import scrapy
 import os

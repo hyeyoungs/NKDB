@@ -1,4 +1,13 @@
 # -*- coding: utf-8 -*-
+import logging
+from scrapy.utils.log import configure_logging
+
+logging . basicConfig (
+    filename = 'log_nkd.txt' ,
+    format = ' %(levelname)s :  %(message)s ' ,
+    level = logging . INFO
+)
+
 import scrapy
 import re
 from crawlNKDB.items import CrawlnkdbItem
@@ -87,7 +96,7 @@ class BoardbotnkdlawSpider(scrapy.Spider):
 
 # * 함수4 각 항목마다 bodys, titles, writers, dates를 가져온다. def parse_category(self, response):
     def parse_category(self, response):
-	# 각 항목마다 bodys, titles, writers, dates를 가져온다.
+        # 각 항목마다 bodys, titles, writers, dates를 가져온다.
         title = response.xpath('//*[@id="contents"]/table/tbody/tr[1]').xpath('string()').get()
         date =response.xpath('//*[@id="contents"]/table/tbody/tr[1]/th/div/span[2]/text()').get()
         writer =response.xpath('//*[@id="contents"]/table/tbody/tr[1]/th/div/a/span/text()').get()

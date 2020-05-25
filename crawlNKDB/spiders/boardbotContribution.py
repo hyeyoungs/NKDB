@@ -71,17 +71,17 @@ class BoardbotcontributionSpider(scrapy.Spider):
             # print(url)
             date = response.xpath('//*[@id="div_article_contents"]/tr['+ str(2*category_no-1) +']/td[5]/text()').get()
             writer = response.xpath('//*[@id="div_article_contents"]/tr['+ str(2*category_no-1) +']/td[3]/text()').get()
- 			# item 객체생성
+ 	    # item 객체생성
             item = CrawlnkdbItem()
             item[config['VARS']['VAR4']] = date
             item[config['VARS']['VAR3']] = writer
- 			# item url에 할당
+ 	    # item url에 할당
             yield scrapy.Request(url, callback=self.parse_category, meta={'item':item})
             category_no += 1
 
     # * function4 각 항목마다 bodys, titles, writers, dates를 가져온다. def parse_category(self, response):
     def parse_category(self, response):
-	# 각 항목마다 bodys, titles, writers, dates를 가져온다.
+        # 각 항목마다 bodys, titles, writers, dates를 가져온다.
         title = response.css('.Form_left2::text').get()
         body =response.css('#tmp_content').xpath('string()').get()
         top_category = response.xpath('//*[@id="left_menu"]/p/span/text()').get()

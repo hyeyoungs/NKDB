@@ -1,4 +1,13 @@
 # -*- coding: utf-8 -*-
+import logging
+from scrapy.utils.log import configure_logging
+
+logging . basicConfig (
+    filename = 'log_nkorea.txt' ,
+    format = ' %(levelname)s :  %(message)s ' ,
+    level = logging . INFO
+)
+
 import jpype
 import scrapy
 import os
@@ -64,7 +73,6 @@ class BoardbotexternalcontributionSpider(scrapy.Spider):
             # print(link)
             yield scrapy.Request(link, callback = self.parse_each_pages, meta={'page_no': page_no, 'last_page_no': last_page_no})
             page_no += 1
-
     # function3: def parse_each_pages(self, response)
     # 페이지의 각 category 접근요청하는 함수
     def parse_each_pages(self, response):
@@ -79,7 +87,6 @@ class BoardbotexternalcontributionSpider(scrapy.Spider):
 
         category_last_no = int(last) - int(first)+1
         category_no = 1
-
         while 1:
         # 해당 url을  item에 넣어준다.
             if(category_no > category_last_no):
@@ -90,17 +97,17 @@ class BoardbotexternalcontributionSpider(scrapy.Spider):
             # print(url)
             date = response.xpath('//*[@id="div_article_contents"]/tr['+ str(2*category_no-1) +']/td[5]/text()').get()
             writer = response.xpath('//*[@id="div_article_contents"]/tr['+ str(2*category_no-1) +']/td[3]/text()').get()
- 			# item 객체생성
+            # item 객체생성
             item = CrawlnkdbItem()
             item[config['VARS']['VAR4']] = date
             item[config['VARS']['VAR3']] = writer
- 			# item url에 할당
+            # item url에 할당
             yield scrapy.Request(url, callback=self.parse_category, meta={'item':item})
             category_no += 1
 
-    # * function4 각 항목마다 bodys, titles, writers, dates를 가져온다. def parse_category(self, response):
+# * function4 각 항목마다 bodys, titles, writers, dates를 가져온다. def parse_category(self, response):
     def parse_category(self, response):
-	# 각 항목마다 bodys, titles, writers, dates를 가져온다.
+        # 각 항목마다 bodys, titles, writers, dates를 가져온다.
         title = response.css('.Form_left2::text').get()
         body =response.css('#tmp_content').xpath('string()').get()
         top_category = response.xpath('//*[@id="left_menu"]/p/span/text()').get()
@@ -108,7 +115,7 @@ class BoardbotexternalcontributionSpider(scrapy.Spider):
         item = response.meta['item']
         item[config['VARS']['VAR1']] = title
         item[config['VARS']['VAR2']] = body
-        item[config['VARS']['VAR5']] = published_institution
+        item[config['VARS']['VAR5']] = published_institution    
         item[config['VARS']['VAR6']]= "http://www.nkorea.or.kr/board/"
         item[config['VARS']['VAR7']] = top_category
         file_name = response.xpath('//*[@id="div_download"]/span[1]/a/text()').get()

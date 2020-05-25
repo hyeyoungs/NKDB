@@ -20,4 +20,4 @@ var12 = file_extracted_content
 path_spider = /Users/sunzero/Dropbox/Crawling/NKDB_Crawling/crawlNKDB/spiders
 
 [SERVER]
-path_spider = /home/hyeyoung/NKDB_Crawling/crawlNKDB/spiders
+path_spider = /home/hyeyoung/NKDB/NKDB/crawlNKDB/spiders
