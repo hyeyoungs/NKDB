@@ -38,7 +38,7 @@ class Boardbotkinu35Spider(scrapy.Spider):
         jpype.startJVM(jpype.getDefaultJVMPath(), "-Djava.class.path=%s" % jarpath)
 
     def start_requests(self):
-        yield scrapy.Request(self.start_urls, self.parse)
+        yield scrapy.Request(self.start_urls, self.parse, dont_filter=True)
 
     def parse(self, response):
         page_no = 1
@@ -52,9 +52,9 @@ class Boardbotkinu35Spider(scrapy.Spider):
             if page_no > last_page_no:
                 break
             ####### 수정사항
-            link = "http://www.kinu.or.kr/www/jsp/prg/api/dlL2.jsp?menuIdx=356&category=128&thisPage=" + str(page_no) + "&searchField=title&searchText="
+            link = "http://www.kinu.or.kr/www/jsp/prg/api/dlL2.jsp?menuIdx=356&category=128&thisPage=" + str(page_no) + "&searchField=&searchText="
             print(link)
-            yield scrapy.Request(link, callback = self.parse_each_pages, meta={'page_no': page_no, 'last_page_no': last_page_no})
+            yield scrapy.Request(link, callback = self.parse_each_pages, meta={'page_no': page_no, 'last_page_no': last_page_no}, dont_filter=True)
             page_no += 1
 
     def parse_each_pages(self, response):
