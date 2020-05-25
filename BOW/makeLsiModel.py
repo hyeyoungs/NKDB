@@ -1,4 +1,5 @@
 #-*- coding: utf-8 -*-
+TopicNum = 10
 # 1. Mongo의 모든 문서 --> list of document
 import pymongo
 from pymongo import MongoClient
@@ -32,16 +33,14 @@ def make_doclist(collection):
 
 texts = make_doclist(nkdb_collection)
 
-# 임의 생성 (query)
-texts.insert(0, input_query)
-
 # 2. 형태소 분석 등 전처리하기
 from konlpy.tag import Mecab
 import re
 
 def preprocess(doc_list):
     mecab = Mecab()
-    result_list = []
+    #result_doclist = []
+    result_dict = []
     for index in range(0, len(doc_list)):
         remove_file_enc = re.compile(r'<[^>]+>');
         remove_special_char = re.compile(r"[^가-힣^.^,^?^!^]")
@@ -61,23 +60,33 @@ def preprocess(doc_list):
                 # stopwords 제외 and 조사, 어미 제외
                 result.append(token)
 
-        result_text = ' '.join(result)
-        result_list.append(result_text)
+        result_dict.append(result)
+        #result_text = ' '.join(result)
+        #result_doclist.append(result_text)
 
-    return result_list
+    #return result_dict, result_doclist
+    return result_dict
 
-result_list = preprocess(texts)
-print(result_list)
+#result_dict, result_doclist = preprocess(texts)
+result_dict = preprocess(texts)
+print(result_dict)
+#print(result_list)
 
-# 3. gensim 사용해 BoW 생성
-from gensim.sklearn_api import Text2BowTransformer
 
-def makeBoW(result_list):
-# Create a transformer..
-    model = Text2BowTransformer()
-    # Use sklearn-style `fit_transform` to get the BOW representation of each document.
-    BoW = model.fit_transform(result_list)
-    print(len(BoW))
-    return BoW
+from gensim.corpora.dictionary import Dictionary
+from gensim import models
 
-BoW = makeBoW(result_list)
+# 3. 사전 만들기
+dictionary = Dictionary(result_dict)
+corpus = [dictionary.doc2bow(dic) for dic in result_dict]
+
+# 4. 만들어진 사전 정보를 가지고 벡터화 하기
+tfidf = models.TfidfModel(corpus)
+corpus_tfidf = tfidf[corpus]
+
+# LSI 모델링
+lsi = models.LsiModel(corpus_tfidf, id2word = dictionary, num_topics = TopicNum)
+corpus_lsi = lsi[corpus_tfidf]
+
+for i, lsi_doc in enumerate(corpus_lsi):
+    print(result_dict[i], lsi_doc)
