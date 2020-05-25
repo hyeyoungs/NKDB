@@ -1,16 +1,5 @@
 # -*- coding: utf-8 -*-
 import scrapy
-
-import logging
-from scrapy.utils.log import configure_logging
-
-logging.basicConfig(
-    filename='log_nkd2.txt',
-    format='%(levelname)s: %(message)s',
-    level=logging.INFO
-)
-
-
 import re
 from crawlNKDB.items import CrawlnkdbItem
 

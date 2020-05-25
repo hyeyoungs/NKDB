@@ -1,13 +1,5 @@
 # -*- coding: utf-8 -*-
 import logging
-from scrapy.utils.log import configure_logging
-
-logging . basicConfig (
-    filename = 'log_nkorea.txt' ,
-    format = ' %(levelname)s :  %(message)s ' ,
-    level = logging . INFO
-)
-
 import jpype
 import scrapy
 import os
@@ -115,7 +107,7 @@ class BoardbotexternalcontributionSpider(scrapy.Spider):
         item = response.meta['item']
         item[config['VARS']['VAR1']] = title
         item[config['VARS']['VAR2']] = body
-        item[config['VARS']['VAR5']] = published_institution    
+        item[config['VARS']['VAR5']] = published_institution
         item[config['VARS']['VAR6']]= "http://www.nkorea.or.kr/board/"
         item[config['VARS']['VAR7']] = top_category
         file_name = response.xpath('//*[@id="div_download"]/span[1]/a/text()').get()
