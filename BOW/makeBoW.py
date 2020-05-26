@@ -77,6 +77,7 @@ from gensim import models
 
 # 3. 사전 만들기
 dictionary = Dictionary(result_dict)
+dictionary.save('nkdb.dict')
 corpus = [dictionary.doc2bow(dic) for dic in result_dict]
 print(dictionary)
 #print(corpus)
