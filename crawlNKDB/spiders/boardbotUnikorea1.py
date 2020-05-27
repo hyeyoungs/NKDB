@@ -68,12 +68,10 @@ class Boardbotunikorea1Spider(scrapy.Spider):
         while True:
             if(category_no > category_last_no):
                 break
-            print("안뇽")
             category_link = response.xpath('//*[@id="sublist"]/ul[' + str(category_no) +']/li[2]/h6/a/@href').get()
             url = 'https://unibook.unikorea.go.kr/material/' + category_link
             item = CrawlnkdbItem()
             title = response.xpath('//*[@id="sublist"]/ul['+ str(category_no) +']/li[2]/h6/a').xpath('string()').get()
-            print(title)
             body = " "
             writer = response.xpath('//*[@id="sublist"]/ul['+ str(category_no) +']/li[2]/div/dl[1]/dd').xpath('string()').get()
             date = response.xpath('//*[@id="boardActionFrm"]/div[2]/table/tbody/tr['+str(category_no)+']/td[3]').xpath('string()').get()
@@ -98,11 +96,15 @@ class Boardbotunikorea1Spider(scrapy.Spider):
         item[config['VARS']['VAR10']] = file_download_url
         item[config['VARS']['VAR9']] = file_name
         print("@@@@@@file name ", file_name)
-        if file_download_url.find("hwp") != -1 :
-            print('find hwp')
-            yield scrapy.Request(file_download_url, callback=self.save_file_hwp, meta={'item':item}) #
+        if file_download_url:
+            if file_download_url.find("hwp") != -1 :
+                print('find hwp')
+                yield scrapy.Request(file_download_url, callback=self.save_file_hwp, meta={'item':item}) #
+            else:
+                yield scrapy.Request(file_download_url, callback=self.save_file, meta={'item':item})
         else:
-            yield scrapy.Request(file_download_url, callback=self.save_file, meta={'item':item})
+            #print("###############file does not exist#################")
+            yield item
 
     def save_file(self, response):
         item = response.meta['item']
