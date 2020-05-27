@@ -91,7 +91,7 @@ class Boardbotunikorea1Spider(scrapy.Spider):
         item = response.meta['item']
         title = response.meta['title']
         file_name = title
-        file_download_url = response.xpath("//*[contains(@class, 'url_856_u btn-item-size btn-gray mr6 mb6')]/a/@href").get()
+        file_download_url = response.xpath("//*[@class='url_856_u btn-item-size btn-gray mr6 mb6']/a/@href").get()
         print(file_download_url)
         item[config['VARS']['VAR10']] = file_download_url
         item[config['VARS']['VAR9']] = file_name
