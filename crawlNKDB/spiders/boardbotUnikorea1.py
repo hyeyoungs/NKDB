@@ -68,6 +68,7 @@ class Boardbotunikorea1Spider(scrapy.Spider):
         while True:
             if(category_no > category_last_no):
                 break
+            print("안뇽")
             category_link = response.xpath('//*[@id="sublist"]/ul[' + str(category_no) +']/li[2]/h6/a/@href').get()
             url = 'https://unibook.unikorea.go.kr/material/' + category_link
             item = CrawlnkdbItem()
@@ -77,7 +78,7 @@ class Boardbotunikorea1Spider(scrapy.Spider):
             writer = response.xpath('//*[@id="sublist"]/ul['+ str(category_no) +']/li[2]/div/dl[1]/dd').xpath('string()').get()
             date = response.xpath('//*[@id="boardActionFrm"]/div[2]/table/tbody/tr['+str(category_no)+']/td[3]').xpath('string()').get()
             top_category = response.xpath('//*[@id="container"]/div/nav/ul/li[1]/a').xpath('string()').get()
-
+            print(top_category)
             item[config['VARS']['VAR1']] = title
             item[config['VARS']['VAR2']] = body
             item[config['VARS']['VAR3']] = writer
@@ -93,6 +94,7 @@ class Boardbotunikorea1Spider(scrapy.Spider):
         title = response.meta['title']
         file_name = title
         file_download_url = response.xpath("//*[contains(@class, 'url_856_u btn-item-size btn-gray mr6 mb6')]/a/@href").get()
+        print(file_download_url)
         item[config['VARS']['VAR10']] = file_download_url
         item[config['VARS']['VAR9']] = file_name
         print("@@@@@@file name ", file_name)
