@@ -79,14 +79,15 @@ from gensim import models
 # 3. 사전 만들기
 dictionary = Dictionary(result_dict)
 corpus = [dictionary.doc2bow(dic) for dic in result_dict]
-
+print(dictionary)
+#print(corpus)
 # 4. 만들어진 사전 정보를 가지고 벡터화 하기
 tfidf = models.TfidfModel(corpus)
 corpus_tfidf = tfidf[corpus]
 
-# LSI 모델링
-lsi = models.LsiModel(corpus_tfidf, id2word = dictionary, num_topics = TopicNum)
-corpus_lsi = lsi[corpus_tfidf]
+print(tfidf)
+#print(corpus_tfidf)
 
-for i, lsi_doc in enumerate(corpus_lsi):
-    print(result_dict[i], lsi_doc)
+# LSI 모델링
+#lsi = models.LsiModel(corpus_tfidf, id2word = dictionary, num_topics = TopicNum)
+#corpus_lsi = lsi[corpus_tfidf]
