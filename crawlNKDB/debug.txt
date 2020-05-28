@@ -34,12 +34,8 @@ kinuboard,boardbotKinu26
 kinuboard,boardbotKinu27
 kinuboard,boardbotKinu28
 kinuboard,boardbotKinu29
-kinuboard,boardbotKinu30
-kinuboard,boardbotKinu31
 kinuboard,boardbotKinu32
 kinuboard,boardbotKinu33
-kinuboard,boardbotKinu34
-kinuboard,boardbotKinu35
 kinuboard,boardbotKinu36
 kinuboard,boardbotKinu37
 kinuboard,boardbotKinu38
