@@ -4,7 +4,7 @@ import configparser
 config = configparser.ConfigParser()
 config.read('./../lib/config.cnf')
 
-information_file = open("../debug.txt", 'r')
+information_file = open("../memo.txt", 'r')
 
 while True:
     line = information_file.readline()

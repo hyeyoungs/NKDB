@@ -84,6 +84,7 @@ class Boardbotunikorea7Spider(scrapy.Spider):
         date = response.xpath('//*[@id="container"]/div/section/div[1]/div/table/tbody/tr[6]/td').xpath('string()').get()
         top_category = response.xpath('//*[@id="container"]/div/section/header/h1').xpath('string()').get()
         print(top_category)
+        item = CrawlnkdbItem()
         item[config['VARS']['VAR1']] = title
         item[config['VARS']['VAR2']] = body
         item[config['VARS']['VAR3']] = writer
@@ -93,7 +94,7 @@ class Boardbotunikorea7Spider(scrapy.Spider):
         item[config['VARS']['VAR6']] = "https://unibook.unikorea.go.kr/"
         file_name = response.xpath('//*[@id="container"]/div/section/div[1]/div/table/tbody/tr[3]/td/a').xpath('string()').get()
         file_download_url = response.xpath('//*[@id="container"]/div/section/div[1]/div/table/tbody/tr[3]/td/a/@href').get()
-        file_download_url = + file_download_url
+        file_download_url = "https://unibook.unikorea.go.kr" + file_download_url
         print(file_download_url)
         item[config['VARS']['VAR10']] = file_download_url
         item[config['VARS']['VAR9']] = file_name
