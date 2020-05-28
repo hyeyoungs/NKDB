@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+path# -*- coding: utf-8 -*-
 import jpype
 import scrapy
 import os

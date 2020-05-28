@@ -79,7 +79,7 @@ class Boardbotunikorea4Spider(scrapy.Spider):
 
     def parse_post(self, response):
         title = response.xpath('//*[@id="container"]/div/section/div[1]/div/table/tbody/tr[1]/td').xpath('string()').get()
-        body = response.xpaht('//*[@id="container"]/div/section/div[1]/div/table/tbody/tr[7]/td').xpath('string()').get()
+        body = response.xpath('//*[@id="container"]/div/section/div[1]/div/table/tbody/tr[7]/td').xpath('string()').get()
         writer = response.xpath('//*[@id="container"]/div/section/div[1]/div/table/tbody/tr[4]/td').xpath('string()').get()
         date = response.xpath('//*[@id="container"]/div/section/div[1]/div/table/tbody/tr[6]/td').xpath('string()').get()
         top_category = response.xpath('//*[@id="container"]/div/section/header/h1').xpath('string()').get()
