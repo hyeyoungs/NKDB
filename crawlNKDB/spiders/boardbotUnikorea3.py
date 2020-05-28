@@ -84,7 +84,11 @@ class Boardbotunikorea3Spider(scrapy.Spider):
         date = response.xpath('//*[@id="container"]/div/section/div[1]/div/table/tbody/tr[6]/td').xpath('string()').get()
         top_category = response.xpath('//*[@id="container"]/div/section/header/h1').xpath('string()').get()
         print(top_category)
+<<<<<<< HEAD
         item = CrawlnkdbItem()
+=======
+        item = response.meta['item']
+>>>>>>> 3b38435add9fc728d4cfafda4967904c348fa24a
         item[config['VARS']['VAR1']] = title
         item[config['VARS']['VAR2']] = body
         item[config['VARS']['VAR3']] = writer
