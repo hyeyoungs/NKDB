@@ -1,9 +1,0 @@
-kinuboard,boardbotKinu55
-kinuboard,boardbotKinu56
-unikoreaboard,boardbotUnikorea2
-unikoreaboard,boardbotUnikorea3
-unikoreaboard,boardbotUnikorea4
-unikoreaboard,boardbotUnikorea5
-unikoreaboard,boardbotUnikorea6
-unikoreaboard,boardbotUnikorea7
-unikoreaboard,boardbotUnikorea8

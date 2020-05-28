@@ -1,9 +1,0 @@
-kinuboard,boardbotKinu55.py
-kinuboard,boardbotKinu56.py
-unikoreaboard,boardbotUnikorea2.py
-unikoreaboard,boardbotUnikorea3.py
-unikoreaboard,boardbotUnikorea4.py
-unikoreaboard,boardbotUnikorea5.py
-unikoreaboard,boardbotUnikorea6.py
-unikoreaboard,boardbotUnikorea7.py
-unikoreaboard,boardbotUnikorea8.py
