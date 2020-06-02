@@ -10,10 +10,8 @@ import configparser
 config = configparser.ConfigParser()
 config.read('./../lib/config.cnf')
 
-
 class BoardbotcontributionSpider(scrapy.Spider):
     name = 'boardbotContribution'
-
     # function1: start_requests(self)
     # 크롤링 시작할 url 설정, start_requests 함수에서 별도의 콜백함수를 구현해서 크롤링
     def start_requests(self):
@@ -71,11 +69,11 @@ class BoardbotcontributionSpider(scrapy.Spider):
             # print(url)
             date = response.xpath('//*[@id="div_article_contents"]/tr['+ str(2*category_no-1) +']/td[5]/text()').get()
             writer = response.xpath('//*[@id="div_article_contents"]/tr['+ str(2*category_no-1) +']/td[3]/text()').get()
- 	    # item 객체생성
+            # item 객체생성
             item = CrawlnkdbItem()
             item[config['VARS']['VAR4']] = date
             item[config['VARS']['VAR3']] = writer
- 	    # item url에 할당
+            # item url에 할당
             yield scrapy.Request(url, callback=self.parse_category, meta={'item':item})
             category_no += 1
 

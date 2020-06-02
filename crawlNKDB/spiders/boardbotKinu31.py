@@ -34,7 +34,7 @@ class Boardbotkinu31Spider(scrapy.Spider):
         self.client = pymongo.MongoClient(config['DB']['MONGO_URI'])
         self.db = self.client['attchment']
         self.fs = gridfs.GridFS(self.db)
-        jarpath = os.path.join(os.path.abspath('.'), './../lib/hwp-crawl.jar')
+        jarpath = os.path.join(os.path.abspath('../../..'), './../lib/hwp-crawl.jar')
         jpype.startJVM(jpype.getDefaultJVMPath(), "-Djava.class.path=%s" % jarpath)
 
     def start_requests(self):
@@ -73,8 +73,8 @@ class Boardbotkinu31Spider(scrapy.Spider):
                 break
             category_link = response.xpath('//*[@id="boardActionFrm"]/div[2]/table/tbody/tr['+ str(category_no) +']/td[2]/a/@href').get()
             url = 'http://www.kinu.or.kr/www/jsp/prg/api/' + category_link
-            # print(url)
-            number = response.xpath('//*[@id="boardActionFrm"]/div[2]/table/tbody/tr['+str(category_no)+']/td[1]').get()
+            #print(url)
+            #number = response.xpath('//*[@id="boardActionFrm"]/div[2]/table/tbody/tr['+str(category_no)+']/td[1]').get()
             #print(number)
             item = CrawlnkdbItem()
             date = response.xpath('//*[@id="boardActionFrm"]/div[2]/table/tbody/tr['+str(category_no)+']/td[3]').xpath('string()').get()
@@ -105,7 +105,7 @@ class Boardbotkinu31Spider(scrapy.Spider):
             print("@@@@@@file name ", file_name)
             if file_icon.find("hwp") != -1 :
                 print('find hwp')
-                yield scrapy.Request(file_download_url, callback=self.save_file_hwp, meta={'item':item}) #
+                yield scrapy.Request(file_download_url, callback=self.save_file_hwp, meta={'item':item})
             else:
                 yield scrapy.Request(file_download_url, callback=self.save_file, meta={'item':item})
         else:
