@@ -89,5 +89,5 @@ print(tfidf)
 #print(corpus_tfidf)
 
 # LSI 모델링
-#lsi = models.LsiModel(corpus_tfidf, id2word = dictionary, num_topics = TopicNum)
-#corpus_lsi = lsi[corpus_tfidf]
+lsi = models.LsiModel(corpus_tfidf, id2word = dictionary, num_topics = TopicNum)
+corpus_lsi = lsi[corpus_tfidf]
