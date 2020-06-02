@@ -78,7 +78,7 @@ class Boardbotkoreahana3Spider(scrapy.Spider):
             writer = "관리자"
             body = ""
             date = response.xpath('//*[@id="container"]/div[1]/div[2]/div[2]/div/div[4]/table/tbody/tr['+str(category_no)+']/td[1]/span[1]').xpath('string()').get()
-            top_category = response.xpath('//*[@id="container"]/div[1]/div[2]/div[2]/div/div[2]/ul/li[1]/a').xpath('string()').get()
+            top_category = response.xpath('//*[@id="container"]/div[1]/div[2]/div[2]/div/div[2]/ul/li[2]/a').xpath('string()').get()
             item[config['VARS']['VAR1']] = title
             item[config['VARS']['VAR3']] = writer
             item[config['VARS']['VAR2']] = body
