@@ -1,0 +1,118 @@
+{
+    "properties": {
+        "file_download_url": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        },
+        "file_extracted_content": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fielddata": true,
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        },
+        "file_id_in_fsfiles": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        },
+        "file_name": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fielddata": true,
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        },
+        "post_body": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fielddata": true,
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        },
+        "post_date": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        },
+        "post_title": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fielddata": true,
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        },
+        "post_writer": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        },
+        "published_institution": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        },
+        "published_institution_url": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        },
+        "top_category": {
+            "type": "text",
+            "analyzer": "my_analyzer",
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        }
+    }
+}

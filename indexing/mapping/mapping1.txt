@@ -1,0 +1,125 @@
+curl -XPUT http://localhost:9200/nkdb?pretty -H 'Content-Type:application/json' -d '
+{
+  "mappings" : {
+    "properties" : {
+      "file_download_url" : {
+        "type" : "text",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "file_extracted_content" : {
+        "type" : "text",
+        "anlayzer" : "my_analyzer",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "file_id_in_fsfiles" : {
+        "type" : "text",
+        "anlayzer" : "my_analyzer",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "file_name" : {
+        "type" : "text",
+        "anlayzer" : "my_analyzer",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "post_body" : {
+        "type" : "text",
+        "anlayzer" : "my_analyzer",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "post_date" : {
+        "type" : "text",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "post_title" : {
+        "type" : "text",
+        "anlayzer" : "my_analyzer",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "post_writer" : {
+        "type" : "text",
+        "anlayzer" : "my_analyzer",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "published_institution" : {
+        "type" : "text",
+        "anlayzer" : "my_analyzer",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "published_institution_url" : {
+        "type" : "text",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "query" : {
+        "properties" : {
+          "match" : {
+            "type" : "object"
+          },
+          "match_all" : {
+            "type" : "object"
+          }
+        }
+      },
+      "top_category" : {
+        "type" : "text",
+        "anlayzer" : "my_analyzer",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      }
+    }
+  }
+}
+
