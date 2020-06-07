@@ -56,9 +56,10 @@ class Jeju5Spider(scrapy.Spider):
 
     def parse(self, response):
         page_no = 1
-        last_page_text = response.xpath('//*[@id="pagenum"]/a[2]/@href').get()
+        last_page_text = response.xpath('//*[@id="pagenum"]/a[3]/@href').get()
         last_page_no = re.findall("\d+", str(last_page_text))
         last_page_no = int(last_page_no[-1])
+        
         print(last_page_no)
         ### modify
         last_page_link = "http://www.jpi.or.kr/kor/regular/policy.sky?code=assay&page=" + str(last_page_no) + "&"
