@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* Style the searching space */
+
+.search_section{
+  height: 65vh;
+  min-height: 200px;
+  padding-top: 50px;
+}
+
+.search{
+  background-color: #ffffff;
+  padding: 20px 20px 0px 20px;
+  text-align: center;
+  font-size: 35px;
+}
+
+
+.input_content{
+  width:auto;
+}
+
+.count{
+  width:auto;
+  margin:0px auto;
+  text-align: center;
+  font-size: 15px;
+
+}
+
+/* Style the responsive design */
+@media only screen and (min-width: 100px){
+  .input_content,.count{
+    display:block;
+  }
+}
+@media only screen and (min-width: 600px){
+  input.info {
+    margin: 0px;
+  }
+  .input_content,.count{
+    display:inline;
+  }
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align:center;
+  font-size:0.7em;
+  margin: 10px 0px;
+}
+
+/* Style query window */
+input.info{
+  width: 70%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: background-color .15s ease-in-out;
+  -webkit-transition: background-color .15s ease-in-out;
+  font-size:0.5em;
+}
+
+/* When the input field gets focus, change */
+input.info:focus {
+  
+}
+
+/* Style search button */
+button#search{
+  width: 90px;
+  height: 40px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #e3e4e6;
+  letter-spacing: 0;
+  -webkit-transition: all .28s ease-in-out;
+  transition: all .28s ease-in-out;
+  font-size:0.5em;
+}
+
+button#search:hover{
+  background-color: #c5c7c9;
+  letter-spacing: 3px;
+}
+
+button#search:active{
+  background-color: #9b9c9e;
+  letter-spacing: 3px;
+}
+
+button,input.info:focus {
+  outline: none;
+}

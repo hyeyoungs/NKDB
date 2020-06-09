@@ -1,0 +1,54 @@
+#content{
+  min-height: 65vh;
+  padding-top: 50px;
+}
+
+
+.subTitle {
+  display: block;
+  background-color: #9b9c9e59;
+  border-left: 7px solid #1c2833bf;
+  color: #212F3D;
+  padding: 15px;
+  margin: 0px 5px 20px 5px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+h4  {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+table, th, td{
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+}
+
+.subIntroTable{
+    width: 97%;
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+.subIntroHeader th {
+  background-color: #82a7d3;
+  color: white;
+  padding: 5px;
+}
+
+.subIntroTable td{
+  padding: 15px;
+  color: #444;
+}
+
+.hover:hover{
+  background-color: #F2F4F4;
+}
+
+.noHoverCol{
+  background-color: white;
+}
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+<title>KUBiC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test1.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test3.css')}}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="header">
+    <h2>KUBiC</h2>
+</div>
+
+
+ <div id="content">
+     {% if doc %}
+         <h4 class = "subTitle">{{doc.post_title}}</h4>
+         <div class = "subIntroTableWrapper">
+          <table class ="subIntroTable">
+            <tr class = "hover">
+              <td style = "background: #f7f7f7;"><strong><span style="color: #333;">저자</span></strong></td>
+              <td>{{ doc.post_writer }}</td>
+            </tr>
+            <tr class = "hover">
+              <td style = "background: #f7f7f7;"><strong><span style="color: #333;">게시한 날짜</span></strong></td>
+	      <td>{{ doc.post_date }}{{doc.published_date}}</td>
+            </tr>
+            <tr class = "hover">
+              <td style = "background: #f7f7f7;"><strong><span style="color: #333;">발행기관</span></strong></td>
+              <td><a href = "{{ contracted_url }}">{{doc.published_institution}}</a></td>
+            </tr>
+            <tr class = "hover">
+              <td style = "background: #f7f7f7;"><strong><span style="color: #333;">카테고리</span></strong></td>
+              <td>{{ doc.top_category }}</td>
+            </tr>
+            <tr class = "hover">
+              <td style = "background: #f7f7f7;"><strong><span style="color: #333;">원문</span></strong></td>
+              <td><a href = "{{doc.file_download_url}}"><img src = "/static/img/attachment.gif" alt="attachment"></a></td>
+            </tr>
+          </table>
+         </div>
+          {% if doc.post_body %}
+         <div class = "subIntroTableWrapper">
+         <table class = "subIntroTable">
+             <tr class = "hover">
+                 <td style = "color:#222;text-align: left;">{{ doc.post_body }}</td>
+             </tr>
+         </table>
+        </div>
+        {% endif %}
+     {% endif %}
+ </div>
+
+
+<div class="footer">
+    <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> KUBiC all rights reserved
+    </p>
+</div>
+
+</body>
+</html>
+

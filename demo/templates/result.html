@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+<title>KUBiC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test1.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test2.css')}}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="header">
+    <h2>KUBiC</h2>
+</div>
+
+<div class="result">
+{% for doc in docs%}
+    <div id="doc">
+        <ul class="navigation">
+            <li id = "published_institution_url">{{doc.published_institution_url}} &#187; {{doc.top_category}} <br/></li>
+            <li id = "title"><a href="/content/{{doc._id}}">{{doc.post_title}}</a></li>
+            <li id = "hlight_content">{{doc.hlight_content}}<br/></li>
+            <li id = "date">{{ doc.post_date }}</li>
+        </ul>
+    </div>
+    <br/>
+{% endfor %}
+</div>
+
+
+<div class="footer">
+    <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> KUBiC all rights reserved
+    </p>
+</div>
+
+</body>
+</html>
