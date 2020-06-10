@@ -1,0 +1,10 @@
+curl -XGET http://localhost:9200/nkdb200527/nkdb/_search?pretty -H 'Content-Type:application/json' -d '
+{
+     "query":{
+        "match":{
+            "post_body": "통일"
+            }
+    }
+}
+'
+

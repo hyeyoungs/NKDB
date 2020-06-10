@@ -1,0 +1,10 @@
+{
+    "query": {
+	"multi_match": {
+            "query": "김정은",
+            "fields": ["post_title", "post_body", "file_name", "file_extracted_content"],
+            "tie_breaker": 0.2,
+            "type": "most_fields"
+        }
+    }
+}

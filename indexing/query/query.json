@@ -1,0 +1,7 @@
+{
+     "query":{  
+        "match":{  
+            "post_body": "남북"           
+            }
+    }
+}

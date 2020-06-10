@@ -1,0 +1,33 @@
+curl -XPUT http://localhost:9200/nkdb?pretty -H 'Content-Type:application/json' -d '
+{
+  "nkdb" : {
+    "settings" : {
+      "index" : {
+        "number_of_shards" : "1",
+        "provided_name" : "nkdb",
+        "creation_date" : "1584433617725",
+        "analysis" : {
+          "analyzer" : {
+            "nori_analyzer" : {
+              "type" : "custom",
+              "tokenizer" : "nori_user_dict"
+            }
+          },
+          "tokenizer" : {
+            "nori_user_dict" : {
+              "type" : "nori_tokenizer",
+              "user_dictionary" : "userdict_ko.txt",
+              "decompound_made" : "mixed"
+            }
+          }
+        },
+        "number_of_replicas" : "1",
+        "uuid" : "ZEg5CfDbT_2-JTFvWUhRzw",
+        "version" : {
+          "created" : "7060199"
+        }
+      }
+    }
+  }
+}
+
