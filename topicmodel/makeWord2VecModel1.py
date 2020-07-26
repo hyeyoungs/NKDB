@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 
 import pickle
-with open('/home/hyeyoung/NKDB/data/corpus.txt', 'rb') as f:
+with open('/home/hyeyoung/NKDB/data/total_morphs_list.txt', 'rb') as f:
     corpus = pickle.load(f) # 단 한줄씩 읽어옴
 
 # word2vec 모델 학습
