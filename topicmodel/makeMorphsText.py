@@ -39,9 +39,6 @@ def make_doclist(collection):
         doc_list.append(temp_list)
 
     print(len(doc_list))
-    print(doc_list[0])
-    print(doc_list[1])
-
     return doc_list
 
 texts = make_doclist(nkdb_collection)
@@ -72,7 +69,7 @@ def preprocess(doc_list):
         result = []
         for token, tag in morphs_texts:
             # stopwords 제외 and 감탄사, 조사, 어미 제외
-            print(token, tag)
+            #print(token, tag)
             if token not in stop_words and tag in ['Noun', 'Verb', 'Adjective', 'Determiner', 'Adverb', 'Conjuction', 'Suffix']:
                 result.append(token)
 
@@ -81,23 +78,9 @@ def preprocess(doc_list):
 
     return result_dict
 
-result_dict = preprocess(texts)
+result_list = preprocess(texts)
 
-print(result_dict)
-
-
-from gensim.corpora.dictionary import Dictionary
-from gensim import models
-
-# 3. 사전 만들기
-dictionary = Dictionary(result_dict)
-dictionary.save('nkdb.dict')
-corpus = [dictionary.doc2bow(dic) for dic in result_dict]
-print(dictionary)
-#print(corpus)
-# 4. 만들어진 사전 정보를 가지고 벡터화 하기
-tfidf = models.TfidfModel(corpus)
-corpus_tfidf = tfidf[corpus]
-
-print(tfidf)
-#print(corpus_tfidf)
+# 3. pickle 모듈을 활용하여 데이터 입력
+import pickle
+with open('result_list.txt', 'wb') as f:
+    pickle.dump(result_list, f)
