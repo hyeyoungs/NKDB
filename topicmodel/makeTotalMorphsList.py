@@ -60,3 +60,8 @@ total_morphslist.extend(data12)
 total_morphslist.extend(data13)
 total_morphslist.extend(data14)
 
+print(len(total_morphslist))
+
+with open('/home/hyeyoung/NKDB/data/total_morphs_list.txt', 'wb') as f:
+    pickle.dump(total_morphslist, f)
+
