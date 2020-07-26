@@ -94,4 +94,4 @@ result_list = preprocess(data)
 # 2. pickle 모듈을 활용하여 데이터 입력
 # @@@ modify
 with open('/home/hyeyoung/NKDB/data/result_list8.txt', 'wb') as f:
-    pickle.dump(result_list, f)(result_list, f)
+    pickle.dump(result_list, f)
