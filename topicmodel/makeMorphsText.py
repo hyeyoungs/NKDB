@@ -43,6 +43,10 @@ def make_doclist(collection):
 
 texts = make_doclist(nkdb_collection)
 
+import pickle
+with open('doc_list.txt', 'wb') as f:
+    pickle.dump(texts, f)
+
 # 2. 형태소 분석 등 전처리하기
 from konlpy.tag import Okt
 import re
@@ -81,6 +85,5 @@ def preprocess(doc_list):
 result_list = preprocess(texts)
 
 # 3. pickle 모듈을 활용하여 데이터 입력
-import pickle
 with open('result_list.txt', 'wb') as f:
     pickle.dump(result_list, f)
