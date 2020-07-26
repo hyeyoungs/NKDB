@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 
 import pickle
-with open('doc_list.txt', 'rb') as f:
+with open('/home/hyeyoung/NKDB/data/doc_list.txt', 'rb') as f:
     data = pickle.load(f) # 단 한줄씩 읽어옴
 
 # 1. 형태소 분석 등 전처리하기
