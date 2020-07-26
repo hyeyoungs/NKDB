@@ -40,10 +40,10 @@ def preprocess(doc_list):
     return result_dict
 
 # @@@ modify
-data = data[0:1000]
+data = data[2000:3000]
 result_list = preprocess(data)
 
 # 2. pickle 모듈을 활용하여 데이터 입력
 # @@@ modify
-with open('/home/hyeyoung/NKDB/data/result_list1.txt', 'wb') as f:
+with open('/home/hyeyoung/NKDB/data/result_list3.txt', 'wb') as f:
     pickle.dump(result_list, f)
