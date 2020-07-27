@@ -3,26 +3,36 @@
 from gensim.models import Word2Vec
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
-import pandas as pd
 
 model = Word2Vec.load("/home/hyeyoung/NKDB/model/CBOW_model.model")
-vocab = model.wv.vocab
-X = model[vocab]
-
-tsne = TSNE(n_component=2)
-
-X_tsne = tsne.fit_transform(X[:100,:])
-df = pd.DataFrame(X_tsne, index=vocab[:100], columns=['x', 'y'])
-df.head(10)
 
 
+def tsne_plot(model):
+    labels = []
+    tokens = []
 
-fig = plt.figure()
-fig.set_size_inches(40,20)
-ax = fig.add_subplot(1, 1, 1)
+    for word in model.wv.vocab:
+        tokens.append(model[word])
+        labels.append(word)
 
-ax.scatter(df['x'], df['y'])
+    tsne_model = TSNE(perplexity=40, n_components=2, init='pca', n_iter=2500, random_state=23)
+    new_values = tsne_model.fit_transform(tokens)
 
-for word, pos in df.iterrows():
-    ax.annotate(word, pos, fontsize=30)
-plt.show()
+    x = []
+    y = []
+    for value in new_values:
+        x.append(value[0])
+        y.append(value[1])
+
+    plt.figure(figsize=(16, 16))
+    for i in range(len(x)):
+        plt.scatter(x[i], y[i])
+        plt.annotate(labels[i],
+                     xy=(x[i], y[i]),
+                     xytext=(5, 2),
+                     textcoords='offset points',
+                     ha='right',
+                     va='bottom')
+    plt.show()
+
+tsne_plot(model)
