@@ -9,6 +9,6 @@ from gensim.corpora.dictionary import Dictionary
 dictionary = Dictionary(total_morphs_list)
 dictionary.save('nkdb.dict')
 corpus = [dictionary.doc2bow(dic) for dic in total_morphs_list]
-
+print(corpus)
 with open('/home/hyeyoung/NKDB/data/corpus.txt', 'wb') as f:
     pickle.dump(corpus, f)

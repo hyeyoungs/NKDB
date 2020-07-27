@@ -10,7 +10,7 @@ model = Word2Vec.load("/home/hyeyoung/NKDB/model/Skipgram_model.model")
 vocab = model.wv.vocab
 X = model[vocab]
 
-tsne = TSNE(n_component=2)
+tsne = TSNE(n_components=2)
 
 X_tsne = tsne.fit_transform(X[:100,:])
 df = pd.DataFrame(X_tsne, index=vocab[:100], columns=['x', 'y'])
