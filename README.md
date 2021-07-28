@@ -1,4 +1,5 @@
 # Capstone Project : KUBIC(Korea Unification Bigdata Center)
+https://kubic.handong.edu
 ## 통일 빅데이터 센터란
 ### 소개
 현재, 북한과 통일에 관련된 정보를 필요로 하는 사람은 증가하고 있으나 기존 서비스에서는 북한과 통일에 관한 전문적인 정보를 얻기 어렵습니다. 
