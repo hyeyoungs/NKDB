@@ -12,7 +12,6 @@ https://kubic.handong.edu
 
 ## 구현 결과
 ![Total](https://user-images.githubusercontent.com/29566893/127668397-e4757251-193c-47cc-b707-0466eba520d0.png)
-![Total](https://user-images.githubusercontent.com/29566893/127668511-07c8aa64-b5e1-4190-9c6c-7d36ae3af3d3.png)
 - 통일 빅데이터 센터 데이터 검색엔진 개발
 - 북한과 통일 관련 자료 13,400건 자료 수집 및 검색 가능
 - 한국과학기술연구원과의 MOU
