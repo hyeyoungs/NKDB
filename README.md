@@ -76,7 +76,6 @@ https://kubic.handong.edu
 ### front-end
 통일교육선도대학사업의 일환으로 진행 중인 본 검색 엔진 개발 연구에서는 현재 80여개 유관 기관의 웹사이트를 지속적으로 모니터 및 신규 게시되는 문서 자원을 확보해가고 있습니다.
 산출된 백엔드를 기반으로 "텍스트 데이터의 다양한 시각화"를 담당하는 [프론트엔드](https://github.com/BaekTree/TIBigdataFE) 설계와 함께 사용성이 뛰어난 북한 및 통일 문헌 검색 엔진 공개를 목표를 두고 있습니다.
-https://github.com/BaekTree/TIBigdataFE
 ## 사용 기술
 ### 핵심 
 - Crawling
